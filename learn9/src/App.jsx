@@ -1,16 +1,22 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Item from "./Item";
 import "./App.css";
 
 function App() {
   const [inputText, setInputText] = useState("");
 
-  const [list, setList] = useState([]);
+  const [list, setList] = useState(
+    JSON.parse(localStorage.getItem("todo")) ?? []
+  );
 
   const toDO = () => {
     list.push({ id: list.length + 1, name: inputText });
     setList(list);
+    localStorage.setItem("todo", JSON.stringify(list));
     setInputText("");
+    setTimeout(() => {
+      alert("item add sucessfully");
+    }, 100);
   };
 
   return (

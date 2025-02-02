@@ -6,6 +6,11 @@ function Item({ name, setList, list, id }) {
       return value.id != id;
     });
     setList(res);
+    setTimeout(() => {
+      setTimeout(() => {
+        alert("item Delete sucessfully");
+      }, 100);
+    }, 100);
   };
   return (
     <>
