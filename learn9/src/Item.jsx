@@ -1,4 +1,5 @@
 import React from "react";
+import { toast } from "react-toastify";
 
 function Item({ name, setList, list, id }) {
   let deleteItem = (id) => {
@@ -6,11 +7,8 @@ function Item({ name, setList, list, id }) {
       return value.id != id;
     });
     setList(res);
-    setTimeout(() => {
-      setTimeout(() => {
-        alert("item Delete sucessfully");
-      }, 100);
-    }, 100);
+    localStorage.setItem("todo", JSON.stringify(res));
+    toast.success("Item Delete Sucessfully");
   };
   return (
     <>

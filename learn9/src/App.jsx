@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Item from "./Item";
+import { ToastContainer, toast } from "react-toastify";
 import "./App.css";
 
 function App() {
@@ -14,9 +15,7 @@ function App() {
     setList(list);
     localStorage.setItem("todo", JSON.stringify(list));
     setInputText("");
-    setTimeout(() => {
-      alert("item add sucessfully");
-    }, 100);
+    toast.success("Item Add Successfully")
   };
 
   return (
@@ -51,6 +50,7 @@ function App() {
           })}
         </ul>
       </div>
+      <ToastContainer />
     </>
   );
 }
